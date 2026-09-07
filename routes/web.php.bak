@@ -1,0 +1,23 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return "<h1>ยินดีต้อนรับเข้าสู่เว็บไซด์ <a href='".route('login')."'> Login </a></h1>";
+});
+
+Route::get('about', function () {
+    return "<h1>เกี่ยวกับเรา</h1>";
+});
+
+Route::get('blog/{id}', function ($id) {
+    return "<h1>บทความทั้งหมด {$id} บทความ</h1>";
+});
+
+Route::get('admin/user/aom', function () {
+    return "<h1>ยินดีต้อนรับ Admin</h1>";
+})->name('login');
+
+Route::fallback(function () {
+    return "ไม่พบหน้า";
+});
